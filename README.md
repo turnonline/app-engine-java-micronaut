@@ -1,6 +1,9 @@
-# ConnecSys Micronaut App Template
+# ConnecSys Micronaut App Template built on the Micronaut framework
 
-ConnecSys app template based on the Micronaut framework. Configured for Google App Engine Java 17 standard environment.
+ConnecSys app template is built on the Micronaut framework. Configured to run on the Google App Engine Java 17 standard
+environment with GraalVM support and can be deployed using Cloud Build.
+
+It enables developers to create scalable and efficient web applications that run on App Engine.
 
 ## Micronaut 3.9.4 Documentation
 
