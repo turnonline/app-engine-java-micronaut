@@ -1,3 +1,2 @@
 runtime: java17
 service: micronaut
-entrypoint: ./app-engine-micronaut

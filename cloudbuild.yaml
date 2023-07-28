@@ -1,0 +1,7 @@
+steps:
+  # Build and deploy executable to App Engine (by App Engine compatible builder, shipped with python)
+  - name: 'gcr.io/cloud-builders/mvn:appengine'
+    entrypoint: mvn
+    args:
+      - 'package'
+      - 'appengine:deploy'

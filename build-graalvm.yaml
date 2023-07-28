@@ -5,9 +5,11 @@ steps:
     args:
       - 'package'
       - '-Dpackaging=native-image'
-  # Deploy the built executable to App Engine (by App Engine compatible builder, shipped with python)
-  - name: 'gcr.io/cloud-builders/mvn:appengine'
-    entrypoint: mvn
+  # Deploy the built executable to App Engine
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: gcloud
     args:
-      - 'appengine:deploy'
-      - '-Dapp.stage.artifact=target/app-engine-micronaut'
+      - 'app'
+      - 'deploy'
+      - 'target/app-engine-micronaut'
+      - '--appyaml=src/main/appengine/app-entrypoint.yaml'
