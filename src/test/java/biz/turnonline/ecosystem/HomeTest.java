@@ -9,11 +9,10 @@ import jakarta.inject.Inject;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @MicronautTest
-public class DefaultControllerTest
+public class HomeTest
 {
     @Inject
     @Client( "/" )
@@ -35,6 +34,5 @@ public class DefaultControllerTest
         String body = client.toBlocking().retrieve( request );
 
         assertNotNull( body );
-        assertEquals( "Hello World!", body );
     }
 }

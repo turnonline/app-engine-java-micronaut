@@ -11,6 +11,7 @@ It enables developers to create scalable and efficient web applications that run
 - [API Reference](https://docs.micronaut.io/4.0.1/api/index.html)
 - [Configuration Reference](https://docs.micronaut.io/4.0.1/guide/configurationreference.html)
 - [Micronaut Guides](https://guides.micronaut.io/latest/index.html)
+- [Micronaut Views](https://micronaut-projects.github.io/micronaut-views/latest/guide/)
 - [Using the App Engine Maven Plugin](https://cloud.google.com/appengine/docs/standard/java-gen2/using-maven)
 
 ---

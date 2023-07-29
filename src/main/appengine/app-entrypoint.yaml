@@ -1,3 +1,32 @@
 runtime: java17
 service: micronaut
 entrypoint: ./app-engine-micronaut
+
+handlers:
+  - url: /public/(.*)
+    static_files: __static__/\1
+    upload: __static__/(.*)
+    require_matching_file: True
+    secure: always
+    expiration: 90d
+
+  - url: /(.*\.png)
+    static_files: __static__/\1
+    upload: __static__/(.*\.png)
+    require_matching_file: True
+    secure: always
+    expiration: 365d
+
+  - url: /favicon\.(ico|png)
+    static_files: __static__/favicon.\1
+    upload: __static__/favicon\.(ico|png)
+    require_matching_file: True
+    secure: always
+    expiration: 365d
+
+  - url: /robots.txt
+    static_files: __static__/robots.txt
+    upload: __static__/robots.txt
+    require_matching_file: True
+    secure: always
+    expiration: 1d

@@ -6,6 +6,7 @@ appengine-generated/
 *.iml
 *.ipr
 *.iws
+out/
 
 # eclipse Files #
 .classpath

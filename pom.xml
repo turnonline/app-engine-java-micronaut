@@ -33,6 +33,7 @@
         <jdk.version>17</jdk.version>
         <release.version>17</release.version>
         <maven.native.plugin.version>0.9.23</maven.native.plugin.version>
+        <static.resources.directory>target/appengine-staging/__static__</static.resources.directory>
     </properties>
 
     <dependencyManagement>
@@ -75,6 +76,19 @@
         <dependency>
             <groupId>io.micronaut</groupId>
             <artifactId>micronaut-http-server-netty</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.micronaut.views</groupId>
+            <artifactId>micronaut-views-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.micronaut.views</groupId>
+            <artifactId>micronaut-views-freemarker</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>com.google.cloud</groupId>
@@ -179,7 +193,28 @@
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
             </plugin>
-
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <!-- the phase to make sure the directory won't be overwritten -->
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <resources>
+                                <resource>
+                                    <directory>src/main/resources/public</directory>
+                                </resource>
+                            </resources>
+                            <outputDirectory>${static.resources.directory}</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -240,6 +275,22 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.4.0</version>
+            </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <!-- Intended for local development, works together with default profile -->
+            <id>local</id>
+            <properties>
+                <static.resources.directory>target/classes/public</static.resources.directory>
+            </properties>
+        </profile>
+    </profiles>
+
 </project>
