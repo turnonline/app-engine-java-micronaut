@@ -4,7 +4,7 @@
     <parent>
         <groupId>io.micronaut.platform</groupId>
         <artifactId>micronaut-parent</artifactId>
-        <version>4.0.1</version>
+        <version>4.1.0</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
@@ -27,12 +27,12 @@
 
     <properties>
         <packaging>jar</packaging>
-        <micronaut.version>4.0.1</micronaut.version>
+        <micronaut.version>4.1.0</micronaut.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <exec.mainClass>biz.turnonline.ecosystem.Application</exec.mainClass>
         <jdk.version>17</jdk.version>
         <release.version>17</release.version>
-        <maven.native.plugin.version>0.9.23</maven.native.plugin.version>
+        <maven.native.plugin.version>0.9.25</maven.native.plugin.version>
         <static.resources.directory>target/appengine-staging/__static__</static.resources.directory>
     </properties>
 
@@ -41,7 +41,7 @@
             <dependency>
                 <groupId>com.google.cloud</groupId>
                 <artifactId>libraries-bom</artifactId>
-                <version>26.20.0</version>
+                <version>26.22.0</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -155,7 +155,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>3.5.0</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -235,7 +234,7 @@
                         <path>
                             <groupId>io.micronaut.validation</groupId>
                             <artifactId>micronaut-validation</artifactId>
-                            <version>${micronaut.version}</version>
+                            <version>4.0.2</version>
                         </path>
                         <path>
                             <groupId>io.micronaut</groupId>
@@ -268,7 +267,7 @@
                                 <path>
                                     <groupId>io.micronaut.validation</groupId>
                                     <artifactId>micronaut-validation</artifactId>
-                                    <version>${micronaut.version}</version>
+                                    <version>4.0.2</version>
                                 </path>
                             </annotationProcessorPaths>
                         </configuration>
